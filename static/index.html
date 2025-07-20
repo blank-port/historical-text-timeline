@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📜 History Timeline Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #2c3e50;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #34495e;
+      font-size: 22px;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #feb47b, #ff7e5f);
+      transform: scale(1.05);
+    }
+
+    .status {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    #timeline h3 {
+      color: #1f3a93;
+    }
+
+    #timeline ul {
+      padding-left: 20px;
+    }
+
+    #timeline li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    #answer {
+      font-style: italic;
+      font-size: 16px;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📜 History Timeline Generator</h1>
+
+    <div class="card">
+      <h2>📂 Upload a History PDF</h2>
+      <input type="file" id="pdf-file" accept=".pdf" />
+      <button onclick="uploadPDF()">Upload PDF</button>
+      <p id="upload-status" class="status"></p>
+    </div>
+
+    <div class="card">
+      <h2>❓ Ask a Historical Question</h2>
+      <input type="text" id="question" placeholder="e.g. What happened in 1857?" />
+      <button onclick="askQuestion()">Ask</button>
+      <p id="answer"></p>
+    </div>
+
+    <div class="card">
+      <h2>📅 Timeline</h2>
+      <button onclick="showTimeline()">Show Timeline</button>
+      <div id="timeline"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
