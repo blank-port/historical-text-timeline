@@ -1,4 +1,8 @@
-const backendURL = "https://historical-text-timeline.onrender.com";
+const backendURL =
+  window.location.hostname === "localhost"
+    ? "http://127.0.0.1:8000"
+    : "https://historical-text-timeline.onrender.com";
+
 
 async function uploadPDF() {
     const fileInput = document.getElementById("pdf-file");
